@@ -129,7 +129,7 @@ public class LoginView extends JFrame {
         }
 
         // Footer
-        JLabel footer = new JLabel("v1.0  ·  Final Year Project 2024");
+        JLabel footer = new JLabel("Login Page");
         footer.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         footer.setForeground(new Color(120, 160, 210));
         gbc.gridy++;
