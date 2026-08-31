@@ -3,7 +3,7 @@ name: Build Windows Installer
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,21 +20,27 @@ jobs:
           distribution: 'temurin'
 
       - name: Install WiX Toolset
-        run: |
-          choco install wixtoolset -y
-          echo "C:\Program Files (x86)\WiX Toolset v3.11\bin" >> $env:GITHUB_PATH
+        run: choco install wixtoolset -y
 
       - name: Build JAR with Maven
         run: mvn clean package -q
 
-      - name: Copy icon
+      - name: Prepare installer input
         run: |
-          mkdir -p installer-input
-          copy target\AttendanceSystem.jar installer-input\
-          copy src\main\resources\app-icon.ico installer-input\
+          New-Item -ItemType Directory -Force -Path installer-input | Out-Null
+          New-Item -ItemType Directory -Force -Path installer-output | Out-Null
+          Copy-Item target\AttendanceSystem.jar installer-input\
+          if (Test-Path src\main\resources\app-icon.ico) {
+            Copy-Item src\main\resources\app-icon.ico installer-input\
+          }
+        shell: pwsh
 
-      - name: Create Windows Installer with jpackage
+      - name: Create Windows Installer
         run: |
+          $iconArg = ""
+          if (Test-Path installer-input\app-icon.ico) {
+            $iconArg = "--icon installer-input\app-icon.ico"
+          }
           jpackage `
             --type exe `
             --name "QR Attendance System" `
@@ -44,7 +50,6 @@ jobs:
             --input installer-input `
             --main-jar AttendanceSystem.jar `
             --main-class com.attendance.Main `
-            --icon installer-input\app-icon.ico `
             --win-menu `
             --win-shortcut `
             --win-dir-chooser `
@@ -52,28 +57,11 @@ jobs:
             --dest installer-output `
             --java-options "-Xms256m" `
             --java-options "-Xmx512m"
+        shell: pwsh
 
-      - name: Upload installer as artifact
+      - name: Upload installer
         uses: actions/upload-artifact@v4
         with:
           name: QR-Attendance-Installer
           path: installer-output\*.exe
           retention-days: 30
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: installer-output\*.exe
-          name: QR Attendance System v1.0.0
-          body: |
-            ## QR Code Based Attendance Management System
-            ### DY Patil School of Biotechnology and Bioinformatics
-
-            **Installation:**
-            1. Download QR-Attendance-Setup.exe
-            2. Run the installer
-            3. Launch from Desktop shortcut
-
-            **Login:**
-            - Teacher: EMP001 / Teacher@123
