@@ -1,0 +1,46 @@
+2026-08-31 22:05:37 [main] INFO  com.attendance.Main - QR Attendance System starting...
+2026-08-31 22:05:38 [main] INFO  com.attendance.Main - FlatLaf Look & Feel applied.
+2026-08-31 22:05:38 [main] DEBUG c.a.database.DatabaseConnection - Created initial connection #1
+2026-08-31 22:05:38 [main] DEBUG c.a.database.DatabaseConnection - Created initial connection #2
+2026-08-31 22:05:38 [main] INFO  c.a.database.DatabaseConnection - Connection pool initialised with 2 connections.
+2026-08-31 22:05:38 [main] INFO  com.attendance.Main - Database connected. Launching UI...
+2026-08-31 22:05:38 [AWT-EventQueue-0] INFO  com.attendance.Main - Application launched successfully.
+2026-08-31 22:05:49 [SwingWorker-pool-1-thread-1] WARN  com.attendance.service.AuthService - Failed login attempt for teacher: EMP001
+2026-08-31 22:05:55 [SwingWorker-pool-1-thread-2] WARN  com.attendance.service.AuthService - Failed login attempt for teacher: EMP001
+2026-08-31 22:07:10 [SwingWorker-pool-1-thread-3] INFO  com.attendance.service.AuthService - Teacher logged in: Rajesh Kumar
+2026-08-31 22:09:41 [Thread-0] INFO  com.attendance.Main - Shutting down...
+2026-08-31 22:09:41 [Thread-0] INFO  c.a.database.DatabaseConnection - Shutting down connection pool...
+2026-08-31 22:09:50 [main] INFO  com.attendance.Main - QR Attendance System starting...
+2026-08-31 22:09:50 [main] INFO  com.attendance.Main - FlatLaf Look & Feel applied.
+2026-08-31 22:09:51 [main] DEBUG c.a.database.DatabaseConnection - Created initial connection #1
+2026-08-31 22:09:51 [main] DEBUG c.a.database.DatabaseConnection - Created initial connection #2
+2026-08-31 22:09:51 [main] INFO  c.a.database.DatabaseConnection - Connection pool initialised with 2 connections.
+2026-08-31 22:09:51 [main] INFO  com.attendance.Main - Database connected. Launching UI...
+2026-08-31 22:09:51 [AWT-EventQueue-0] INFO  com.attendance.Main - Application launched successfully.
+2026-08-31 22:09:59 [SwingWorker-pool-1-thread-1] INFO  com.attendance.service.AuthService - Teacher logged in: Monali Mam
+2026-08-31 22:10:35 [AWT-EventQueue-0] INFO  com.attendance.service.AuthService - Teacher logged out: Monali Mam
+2026-08-31 22:10:43 [SwingWorker-pool-1-thread-8] INFO  com.attendance.service.AuthService - Teacher logged in: Monali Mam
+2026-08-31 22:10:43 [SwingWorker-pool-1-thread-2] DEBUG c.a.database.DatabaseConnection - Created new connection on demand.
+2026-08-31 22:11:38 [AWT-EventQueue-0] INFO  com.attendance.dao.StudentDAO - Student inserted: id=1
+2026-08-31 22:12:02 [SwingWorker-pool-1-thread-6] INFO  com.attendance.dao.QRTokenDAO - QR token created: id=1, lecture=1
+2026-08-31 22:12:02 [SwingWorker-pool-1-thread-6] INFO  c.attendance.service.QRCodeService - QR generated for lecture=1, token=2BBE71C16354457AA3329EF803366B9E, expires=100s
+2026-08-31 22:12:17 [AWT-EventQueue-0] INFO  com.attendance.service.AuthService - Teacher logged out: Monali Mam
+2026-08-31 22:12:28 [SwingWorker-pool-1-thread-7] INFO  com.attendance.service.AuthService - Student logged in: Yash Darji
+2026-08-31 22:12:31 [SwingWorker-pool-1-thread-1] INFO  com.github.sarxos.webcam.Webcam - WebcamDefaultDriver capture driver will be used
+2026-08-31 22:12:31 [atomic-processor-1] INFO  c.g.s.webcam.ds.cgt.WebcamOpenTask - Opening webcam Integrated Camera 0
+2026-08-31 22:12:39 [atomic-processor-1] INFO  c.g.s.webcam.ds.cgt.WebcamCloseTask - Closing Integrated Camera 0
+2026-08-31 22:12:39 [SwingWorker-pool-1-thread-10] INFO  com.attendance.dao.AttendanceDAO - Attendance marked: id=1, student=1, lecture=1
+2026-08-31 22:12:39 [SwingWorker-pool-1-thread-10] INFO  c.a.service.AttendanceService - Attendance marked: student=1, lecture=1, token=2BBE71C16354457AA3329EF803366B9E
+2026-08-31 22:13:06 [AWT-EventQueue-0] INFO  com.attendance.service.AuthService - Student logged out: Yash Darji
+2026-08-31 22:13:20 [SwingWorker-pool-1-thread-6] INFO  com.attendance.service.AuthService - Student logged in: Yash Darji
+2026-08-31 22:13:25 [AWT-EventQueue-0] INFO  com.attendance.service.AuthService - Student logged out: Yash Darji
+2026-08-31 22:13:34 [SwingWorker-pool-1-thread-3] WARN  com.attendance.service.AuthService - Failed login attempt for teacher: EMP001
+2026-08-31 22:13:39 [SwingWorker-pool-1-thread-1] INFO  com.attendance.service.AuthService - Teacher logged in: Monali Mam
+2026-08-31 22:13:55 [AWT-EventQueue-0] INFO  c.a.reports.PDFReportGenerator - Generating PDF attendance report: C:\Users\Lenovo\OneDrive\Documents\attendance_report.pdf
+2026-08-31 22:13:55 [AWT-EventQueue-0] INFO  c.a.reports.PDFReportGenerator - PDF generated successfully: C:\Users\Lenovo\OneDrive\Documents\attendance_report.pdf
+2026-08-31 22:14:01 [AWT-EventQueue-0] INFO  c.a.reports.ExcelReportGenerator - Generating Excel report: C:\Users\Lenovo\OneDrive\Documents\attendance_report.xlsx
+2026-08-31 22:14:02 [AWT-EventQueue-0] INFO  c.a.reports.ExcelReportGenerator - Excel report generated: C:\Users\Lenovo\OneDrive\Documents\attendance_report.xlsx
+2026-08-31 22:15:59 [AWT-EventQueue-0] INFO  com.attendance.service.AuthService - Teacher logged out: Monali Mam
+2026-08-31 22:16:08 [SwingWorker-pool-1-thread-8] INFO  com.attendance.service.AuthService - Teacher logged in: Monali Mam
+2026-08-31 22:16:21 [Thread-0] INFO  com.attendance.Main - Shutting down...
+2026-08-31 22:16:21 [Thread-0] INFO  c.a.database.DatabaseConnection - Shutting down connection pool...
